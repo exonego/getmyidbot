@@ -20,7 +20,7 @@ async def process_start_command(message: Message):
 @dp.message()
 async def process_any_message(message: Message):
     await message.answer(text=str(message.from_user.id))
-    if message.forward_from_chat.id:
+    if message.forward_from_chat:
         await message.answer("Переслано из:")
         await message.answer(str(message.forward_from_chat))
 
