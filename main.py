@@ -14,15 +14,11 @@ dp = Dispatcher()
 @dp.message(CommandStart())
 async def process_start_command(message: Message):
     await message.answer(text="Привет! Я отправляю твой user_id!")
-    await message.answer(text=str(message.from_user.id))
 
 
 @dp.message()
 async def process_any_message(message: Message):
     await message.answer(text=str(message.from_user.id))
-    if message.forward_from_chat:
-        await message.answer("Переслано из:")
-        await message.answer(str(message.forward_from_chat))
 
 
 if __name__ == "__main__":
